@@ -55,20 +55,18 @@ setCity(event.target.value);
             </div>
           </form>
         </div>
+
+        <h1>{weather.name}</h1>
+        <h3>Thursday 9:00 October 13, 2022</h3>
         <div className="weather-info">
-          <h1>{weather.name}</h1>
-          <h3>Thursday 9:00 October 13, 2022</h3>
           <div className="row">
-            <div className="col-6">
-              <img
-                src={weather.icon}
-                alt={weather.description}
-              />
-              {weather.temperature}°C
+            <div className="col-6 temperature-box">
+              <img src={weather.icon} alt={weather.description} className="icon" />
+              <span className="temperature">{weather.temperature}</span><span className="unit">°C</span>
             </div>
             <div className="col-6">
               <ul>
-                <li>Description: {weather.description}</li>
+                <li className="description">{weather.description}</li>
                 <li>Humidity: {weather.humidity}%</li>
                 <li>Wind: {weather.wind}km/h</li>
               </ul>
