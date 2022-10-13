@@ -1,0 +1,10 @@
+.App .container {
+  border: 1px solid #D9DCE0;
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 10px 20px;
+}
+.App footer {
+  margin-top: -40px;
+  text-align: center;
+}
