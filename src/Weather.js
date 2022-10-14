@@ -4,7 +4,8 @@ import "./Weather.css"
 
 export default function Weather() {
 
-    const [city, setCity] = useState("")
+    const [city, setCity] = useState("");
+    const [load, setLoad] = useState(false);
     const [weather, setWeather] = useState({});
 
     function updateCity(event) {
@@ -31,6 +32,7 @@ setCity(event.target.value);
       axios.get(apiUrl).then(displayWeather);
     }
 
+if (ready) {
     return (
       <div className="Weather">
         <div className="search-engine">
