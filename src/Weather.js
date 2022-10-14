@@ -13,6 +13,7 @@ setCity(event.target.value);
     }
 
     function displayWeather(response) {
+      setLoad(true)
       setWeather({
         name: response.data.name,
         icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
@@ -32,7 +33,7 @@ setCity(event.target.value);
       axios.get(apiUrl).then(displayWeather);
     }
 
-if (ready) {
+if (load) {
     return (
       <div className="Weather">
         <div className="search-engine">
@@ -77,4 +78,6 @@ if (ready) {
         </div>
       </div>
     );
+}
+
 }
