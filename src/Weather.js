@@ -1,17 +1,19 @@
 import React, { useState } from "react";
 import axios from "axios";
+import FormattedDate from "./FormattedDate";
 import "./Weather.css"
 
 export default function Weather() {
 
-    const [city, setCity] = useState("");
-    const [weather, setWeather] = useState({ load: false});
+
+    const [weather, setWeather] = useState({ load: false });
 
    
     function displayWeather(response) {
       setWeather({
         load: true,
-        name: response.data.name,
+        city: response.data.name,
+        date: new Date(response.data.dt * 1000),
         icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
         temperature: Math.round(response.data.main.temp),
         description: response.data.weather[0].description,
@@ -20,19 +22,13 @@ export default function Weather() {
       })
     }
 
-     function updateCity(event) {
-       setCity(event.target.value);
-     }
-
-    function handleSubmit(event) {
-      event.preventDefault();
-    }
+   
 
 if (weather.load) {
     return (
       <div className="Weather">
         <div className="search-engine">
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="row">
               <div className="col-9">
                 <input
@@ -40,7 +36,7 @@ if (weather.load) {
                   placeholder="Enter a city..."
                   autoFocus={true}
                   className="form-control"
-                  onChange={updateCity}
+                  
                 />
               </div>
               <div className="col-3">
@@ -54,8 +50,8 @@ if (weather.load) {
           </form>
         </div>
 
-        <h1>{weather.name}</h1>
-        <h3>Thursday 9:00 October 13, 2022</h3>
+        <h1>{weather.city}</h1>
+        <h3><FormattedDate date={weather.date} /></h3>
         <div className="weather-info">
           <div className="row">
             <div className="col-6 temperature-box">
@@ -76,10 +72,12 @@ if (weather.load) {
 
 } else {
   let units = "metric";
+  let city = "Honolulu";
   const apiKey = "eb2ee96fce77dd8a4eaad97e550c01d8";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(apiUrl).then(displayWeather);
+  
+  return "Loading...";
 }
 
 }
