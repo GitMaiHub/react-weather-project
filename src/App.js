@@ -31,7 +31,7 @@ export default function App() {
         </a>{" "}
         and{" "}
         <a
-          href="https://app.netlify.com/sites/mellifluous-crumble-5a9e6e/deploys/634c5b7dd81dce3ba52fa5df"
+          href="https://delicate-kheer-77ca0f.netlify.app/"
           title="View this project on Netlify(external)"
           target="_blank"
           rel="noreferrer"
