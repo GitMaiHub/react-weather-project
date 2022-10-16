@@ -15,15 +15,17 @@ export default function App() {
           title="Mai's portfolio"
           target="_blank"
           rel="noreferrer"
+          className="links"
         >
           Mai Carlton
         </a>{" "}
-        and{" "}
+        and is{" "}
         <a
           href="https://github.com/GitMaiHub/react-weather-project"
           title="Go to GitHub(external)"
           target="_blank"
           rel="noreferrer"
+          className="links"
         >
           open-sourced on GitHub
         </a>{" "}
@@ -33,6 +35,7 @@ export default function App() {
           title="View this project on Netlify(external)"
           target="_blank"
           rel="noreferrer"
+          className="links"
         >
           hosted on Netlify
         </a>
